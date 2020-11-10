@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'user'
+    'core',
+    'user',
+    'SGA'
 ]
 
 MIDDLEWARE = [
@@ -117,7 +119,11 @@ USE_L10N = True
 USE_TZ = True
 
 
+ATOMIC_REQUESTS = True
+
 TOKEN_TIME_OUT = timedelta(hours=1)
+
+AUTH_USER_MODEL='core.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

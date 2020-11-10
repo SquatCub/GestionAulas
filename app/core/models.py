@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import (
-    AbstractUser, BaseUserManager, PermissionsMixin)
+    AbstractBaseUser, BaseUserManager, PermissionsMixin)
 from rest_framework.authentication import TokenAuthentication
 from user.token import ExpiringToken
 from rest_framework import exceptions
@@ -9,12 +9,18 @@ from rest_framework import exceptions
 class UserManager(BaseUserManager):
 
     def create_user(self, email, password=None, **kargs):
-        """Creates and saves a normal user"""
+        """Creates and saves a new user
 
+        Args:
+            email ([type]): [description]
+            password ([type], optional): [description]. Defaults to None.
+        """
         if not email:
-            raise ValueError('User must have an email')
+            raise ValueError('User Must Have An Email Address')
         new_email = self.normalize_email(email)
         user = self.model(email=new_email, **kargs)
+        # this is the same as creating a user model
+        user.set_password(password)  # this incrypt the password
         user.save(using=self._db)
         return user
 
@@ -47,11 +53,12 @@ class ExpiringTokenAuthentication(TokenAuthentication):
         return (token.user, token)
 
 
-class User(AbstractUser, PermissionsMixin):
-    """Custom user with email added"""
+class User(AbstractBaseUser, PermissionsMixin): 
+    """Custom user model"""
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    objects = UserManager()  # for fetching an user or getting relations bettween classes
+    objects = UserManager()
     USERNAME_FIELD = 'email'
+
