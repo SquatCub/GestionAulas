@@ -6,7 +6,6 @@ from core.models import User
 
 class UserSerializer(serializers.ModelSerializer):
     """Serializer for the user model"""
-
     class Meta:
         model = get_user_model()
         fields = ('email','password','name')
