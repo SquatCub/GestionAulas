@@ -62,4 +62,24 @@
   .fs-70 {
     font-size: 67px;
   }
-  
+
+
+  @media (max-width: 768px) {
+    /* For mobile phones: */
+    .map-lg {
+        display: none;
+    }
+    .map-sm {
+      display: block;
+  }
+}
+
+@media (min-width: 769px) {
+    /* For mobile phones: */
+    .map-sm {
+        display: none;
+    } 
+    .map-lg {
+      display: block;
+  }
+}

@@ -3,16 +3,16 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <title>Aulas TEC</title>
         <!-- Bootstrap & jQuery-->
-		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-		<script type="text/javascript" src="{% static 'sga/jquery-3.4.1.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'sga/bootstrap.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'sga/dinamico.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script type="text/javascript" src="{% static 'sga/jquery-3.4.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'sga/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'sga/dinamico.js' %}"></script>
+        <script type="text/javascript" src="{% static 'sga/map.js' %}"></script>
 
-
-		<!-- Mi CSS -->
+        <!-- Mi CSS -->
         <link rel="stylesheet" type="text/css" href="{% static 'sga/miEstilo.css' %}">
         <link rel="stylesheet" href="{% static 'sga/map.css' %}">
     </head>
@@ -41,225 +41,11 @@
             </div>
             <hr>
             <h1>Mapa</h1>
+        </div>
 
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2833 2465">
-                
-                <g id="Map">
-                <image width="2833" height="2465" xlink:href="{% static 'sga/MapPH.png' %}"/>
-                </g>
-                <!-- campus terciario -->
-                <g id="_3B" data-name="3B">
-                <polygon class="cls-1" points="2364.75 1995.05 2389.51 1928.58 2474.86 1961.82 2448.15 2029.58 2364.75 1995.05"/>
-                <text class="fs-60" transform="translate(2392.2 1997.08)">3B</text>
-                </g>
-                <g id="_3A" data-name="3A">
-                <polygon class="cls-1" points="2184.26 2138.39 2223.35 2045.87 2327.61 2086.92 2289.16 2179.44 2184.26 2138.39"/>
-                <text class="fs-60" transform="translate(2226.04 2128.7)">3A</text>
-                </g>
-                <!-- Campus secundario -->
-                <g id="_2K" data-name="2K">
-                <rect class="cls-1" x="252.97" y="172.57" width="50.82" height="40.4"/>
-                <text class="fs-35" transform="translate(260.71 203.04)">2K</text>
-                </g>
-                <g id="_2J" data-name="2J">
-                <rect class="cls-1" x="389.15" y="289.2" width="110.12" height="42.35"/>
-                <text class="fs-35" transform="translate(433.73 320.98)">2J</text>
-                </g>
-                <g id="_2H" data-name="2H">
-                <rect class="cls-1" x="384.59" y="396.71" width="114.68" height="45.61"/>
-                <text class="fs-35" transform="translate(426.09 429.33)">2H</text>
-                </g>
-                <g id="_2G" data-name="2G">
-                <rect class="cls-1" x="560.51" y="312.01" width="43" height="157.03"/>
-                <text class="fs-35" transform="translate(562.42 388.24)">2G</text>
-                </g>
-                <g id="_2F" data-name="2F">
-                <rect class="cls-1" x="680.41" y="338.07" width="102.29" height="36.49"/>
-                <text class="fs-35" transform="translate(716.83 367.59)">2F</text>
-                </g>
-                <g id="_2E" data-name="2E">
-                <polygon class="cls-1" points="690.83 540.71 703.86 521.82 668.03 497.06 655.65 518.56 690.83 540.71"/>
-                <text class="fs-35 sw-4" transform="translate(662.61 531.66)">2E</text>
-                </g>
-                <g id="_2D" data-name="2D">
-                <rect class="cls-1" x="441.93" y="521.82" width="142.04" height="54.73"/>
-                <text class="fs-40" transform="translate(490.87 562.22)">2D</text>
-                </g>
-                <g id="_2C" data-name="2C">
-                <rect class="cls-1" x="438.02" y="612.39" width="57.34" height="28.34"/>
-                <text class="fs-35" transform="translate(449.43 637.73)">2C</text>
-                </g>
-                <g id="_2B" data-name="2B">
-                <rect class="cls-1" x="512.3" y="612.39" width="45.61" height="56.69"/>
-                <text class="fs-35" transform="translate(516.67 651.81)">2B</text>
-                </g>
-                <g id="_2A" data-name="2A">
-                <polygon class="cls-1" points="353.31 795.48 353.31 741.4 287.5 741.4 287.5 691.23 469.94 691.23 469.94 743.36 405.44 743.36 404.79 795.48 469.94 795.48 469.94 846.31 287.5 846.31 287.5 795.48 353.31 795.48"/>
-                <text class="fs-40" transform="translate(356.27 731.85)">2A</text>
-                </g>
-                <!-- Campus principal -->
-                <g id="S3">
-                <rect class="cls-1" x="1655.75" y="772.68" width="34.53" height="39.75"/>
-                <text class="fs-25" transform="translate(1659.03 802.42)">S3</text>
-                </g>
-                <g id="S2">
-                <rect class="cls-1" x="517.44" y="1516.79" width="26.71" height="37.79"/>
-                <text class="fs-25" transform="translate(515.44 1543.93)">S2</text>
-                </g>
-                <g id="S1">
-                <rect class="cls-1" x="731.81" y="1490.07" width="35.19" height="33.23"/>
-                <text class="fs-25" transform="translate(735.54 1516.39)">S1</text>
-                </g>
-                <g id="LL">
-                <rect class="cls-1" x="1122.1" y="1316.75" width="114.68" height="99.78"/>
-                <text class="fs-60" transform="translate(1156.3 1382.12)">LL</text>
-                </g>
-                <g id="CH">
-                <rect class="cls-1" x="1356.1" y="360.88" width="191.57" height="75.58"/>
-                <text class="fs-50" transform="translate(1421.03 415.34)">CH</text>
-                </g>
-                <g id="AH">
-                <rect class="cls-1" x="1579.16" y="1675.34" width="131.62" height="99.47"/>
-                <text class="fs-50" transform="translate(1611.44 1739.55)">AH</text>
-                </g>
-                <g id="AG">
-                <rect class="cls-1" x="1820.67" y="366.09" width="75.58" height="187.22"/>
-                <text class="fs-40" transform="translate(1834.84 463.71)">AG</text>
-                </g>
-                <g id="AF">
-                <rect class="cls-1" x="2054.38" y="1382.12" width="189.83" height="199.38"/>
-                <text class="fs-60" transform="translate(2115.39 1499.74)">AF</text>
-                </g>
-                <g id="AE">
-                <rect class="cls-1" x="1944.48" y="1355.63" width="78.62" height="210.24"/>
-                <text class="fs-40" transform="translate(1956.63 1473.78)">AE</text>
-                </g>
-                <g id="AD">
-                <rect class="cls-1" x="1432.9" y="1749.18" width="78.06" height="39.96"/>
-                <text class="fs-40" transform="translate(1447.67 1781.44)">AD</text>
-                </g>
-                <g id="AC">
-                <rect class="cls-1" x="1432.9" y="1658.39" width="83.71" height="38.23"/>
-                <text class="fs-40" transform="translate(1448.67 1691.18)">AC</text>
-                </g>
-                <g id="AB">
-                <rect class="cls-1" x="1542.67" y="1543.72" width="85.14" height="39.96"/>
-                <text class="fs-40" transform="translate(1561.76 1576.95)">AB</text>
-                </g>
-                <g id="AA">
-                <polygon class="cls-1" points="1573.51 1369.96 1573.51 1409.06 1662.99 1410.58 1662.99 1369.96 1573.51 1369.96"/>
-                <text class="fs-35" transform="translate(1598.15 1399.45)">AA</text>
-                </g>
-                <g id="Z">
-                <polygon class="cls-1" points="1495.32 1369.96 1495.32 1470.3 1558.3 1470.3 1558.3 1438.16 1537.89 1437.72 1537.89 1369.96 1495.32 1369.96"/>
-                <text class="fs-40" transform="translate(1506.61 1434.68)">Z</text>
-                </g>
-                <g id="Y">
-                <rect class="cls-1" x="1808.95" y="1416.53" width="94.26" height="98.51"/>
-                <text class="fs-60" transform="translate(1839.47 1481.82)">Y</text>
-                </g>
-                <g id="X">
-                <polygon class="cls-1" points="1394.11 1546.76 1394.11 1505.92 1486.2 1505.92 1486.2 1524.17 1506.61 1523.73 1506.61 1546.76 1394.11 1546.76"/>
-                <text class="fs-40" transform="translate(1431.9 1540.41)">X</text>
-                </g>
-                <g id="W">
-                <rect class="cls-1" x="1448.67" y="1356.06" width="26.23" height="54.52"/>
-                <text class="fs-25" transform="translate(1451.74 1391.93) scale(1.03 1)">W</text>
-                </g>
-                <g id="V">
-                <polygon class="cls-1" points="1432.9 1460.31 1403.66 1460.31 1403.66 1362.14 1434.94 1362.14 1432.9 1460.31"/>
-                <text class="fs-40" transform="translate(1408.3 1422.65)">V</text>
-                </g>
-                <g id="U">
-                <polygon class="cls-1" points="1165.1 1682.75 1202.51 1682.75 1202.51 1648.16 1217.69 1648.16 1217.69 1532.75 1203.57 1532.75 1203.57 1498.51 1165.1 1498.51 1165.1 1504.16 1021.46 1509.81 1021.46 1484.04 970.63 1484.04 970.63 1689.81 1020.04 1689.81 1020.4 1658.75 1164.4 1675.34 1165.1 1682.75"/>
-                <text class="fs-70" transform="translate(1085.71 1608.96)">U</text>
-                </g>
-                <g id="T">
-                <rect class="cls-1" x="790.45" y="1540.41" width="126.41" height="88.45"/>
-                <text class="fs-50" transform="translate(840.04 1603.44)">T</text>
-                </g>
-                <g id="S">
-                <rect class="cls-1" x="643.84" y="1399.45" width="148.56" height="29.37"/>
-                <text class="fs-25 sm-10" transform="translate(711.64 1423.6)">S</text>
-                </g>
-                <g id="R">
-                <rect class="cls-1" x="1281.16" y="1362.14" width="65.59" height="82.97"/>
-                <text class="fs-50" transform="translate(1299.51 1416.53)">R</text>
-                </g>
-                <g id="Q">
-                <rect class="cls-1" x="1731.63" y="1245.73" width="169.41" height="40.4"/>
-                <text class="fs-40" transform="translate(1804.6 1277.44)">Q</text>
-                </g>
-                <g id="P">
-                <rect class="cls-1" x="1016.55" y="1292.64" width="77.61" height="42.35"/>
-                <text class="fs-50" transform="translate(1047.14 1328.99)">P</text>
-                </g>
-                <g id="O">
-                <rect class="cls-1" x="1094.16" y="1224.88" width="156.31" height="38.44"/>
-                <text class="fs-40" transform="translate(1161.01 1258.76)">O</text>
-                </g>
-                <g id="Ñ">
-                <rect class="cls-1" x="940.96" y="1224.88" width="65.81" height="67.76"/>
-                <text class="fs-50" transform="translate(960.17 1273.43)">Ñ</text>
-                </g>
-                <g id="N">
-                <rect class="cls-1" x="757.22" y="1244.1" width="99.04" height="147.83"/>
-                <text class="fs-50" transform="translate(789.84 1334.99)">N</text>
-                </g>
-                <g id="M">
-                <rect class="cls-1" x="574.12" y="1244.1" width="97.74" height="147.83"/>
-                <text class="fs-50" transform="translate(600.31 1334.99)">M</text>
-                </g>
-                <g id="L">
-                <polygon class="cls-1" points="894.05 1101.08 894.05 1071.1 882.97 1071.1 882.97 1061.33 856.26 1061.33 856.26 1072.41 677.73 1072.41 677.73 1101.08 894.05 1101.08"/>
-                <text class="fs-50 sm-10" transform="translate(782.7 1101.08)">L</text>
-                </g>
-                <g id="K">
-                <polygon class="cls-1" points="1224.04 1132.28 1224.04 1105.92 1235.81 1105.92 1235.81 1089.92 1260.28 1089.92 1260.28 1104.98 1448.51 1104.98 1448.51 1132.28 1224.04 1132.28"/>
-                <text class="fs-60" transform="translate(1336.28 1139.86)">K</text>
-                </g>
-                <g id="J">
-                <polygon class="cls-1" points="1058.25 995.52 1136.44 995.52 1136.44 946 1040.01 946 1040.01 993.56 1058.54 993.35 1058.25 995.52"/>
-                <text class="fs-40" transform="translate(1085.71 982.16)">J</text>
-                </g>
-                <g id="I">
-                <rect class="cls-1" x="1278.48" y="926.45" width="140.74" height="138.14"/>
-                <text class="fs-60" transform="translate(1343.29 1011.48)">I</text>
-                </g>
-                <g id="H">
-                <rect class="cls-1" x="1861" y="667.12" width="48.22" height="373.36"/>
-                <text class="fs-50" transform="translate(1870.83 850.21)">H</text>
-                </g>
-                <g id="G">
-                <rect class="cls-1" x="1537.81" y="772.68" width="93.18" height="172.02"/>
-                <text class="fs-50" transform="translate(1565.28 874.33)">G</text>
-                </g>
-                <g id="F">
-                <rect class="cls-1" x="1255.03" y="836.53" width="164.2" height="42.35"/>
-                <text class="fs-40" transform="translate(1332.82 873.33)">F</text>
-                </g>
-                <g id="E">
-                <rect class="cls-1" x="1323.45" y="716.64" width="160.28" height="37.79"/>
-                <text class="fs-40 sm-10" transform="translate(1396 750.19)">E</text>
-                </g>
-                <g id="D">
-                <rect class="cls-1" x="1366.52" y="579.16" width="192.22" height="46.91"/>
-                <text class="fs-50" transform="translate(1451.88 620.23)">D</text>
-                </g>
-                <g id="C">
-                <rect class="cls-1" x="1451.74" y="478.16" width="136.32" height="40.4"/>
-                <text class="fs-40" transform="translate(1506.61 513.67)">C</text>
-                </g>
-                <g id="B">
-                <rect class="cls-1" x="1253.8" y="484.03" width="97.09" height="39.75"/>
-                <text class="fs-40" transform="translate(1293.84 518.56)">B</text>
-                </g>
-                <g id="A">
-                <polygon class="cls-1" points="1210.79 754.43 1210.79 658 1174.96 658 1174.96 617.6 1210.79 617.6 1210.79 528.33 1075.27 528.33 1075.27 616.95 1108.49 616.3 1108.49 658.65 1075.27 658.65 1075.27 754.43 1210.79 754.43"/>
-                <text class="fs-60" transform="translate(1124.13 722.09)">A</text>
-                </g>
-            </svg>
+            {% include "aulas/map.html" %}
             <hr>
+        <div class="container">
             <h2 class="text-muted font-weight-light">Aqui encontraras toda la informacion necesaria acerca de los edificios y aulas del campus.</h2>
             <br><br>
 
