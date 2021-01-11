@@ -1,0 +1,85 @@
+/*-----------Propiedades del texto-----------*/
+.fs-25, .fs-70, .fs-50, .fs-60, .fs-35, .fs-40 {
+    fill: #fff;
+    font-family: sans-serif;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    transition: font-size 0.5s;
+}
+/*-----------Hovers-----------*/
+#A:hover .cls-1, #B:hover .cls-1, #C:hover .cls-1, #D:hover .cls-1, #E:hover .cls-1, #F:hover .cls-1, #G:hover .cls-1, #H:hover .cls-1, #I:hover .cls-1, #J:hover .cls-1, #K:hover .cls-1, #L:hover .cls-1, #M:hover .cls-1, #N:hover .cls-1, #Ñ:hover .cls-1, #O:hover .cls-1, #P:hover .cls-1, #Q:hover .cls-1, #R:hover .cls-1, #S:hover .cls-1, #T:hover .cls-1, #U:hover .cls-1, #V:hover .cls-1, #W:hover .cls-1, #X:hover .cls-1, #Y:hover .cls-1, #Z:hover .cls-1, #AA:hover .cls-1, #AB:hover .cls-1, #AC:hover .cls-1, #AD:hover .cls-1, #AE:hover .cls-1, #AF:hover .cls-1, #AG:hover .cls-1, #AH:hover .cls-1, #CH:hover .cls-1, #LL:hover .cls-1, #S1:hover .cls-1, #S2:hover .cls-1, #S3:hover .cls-1, #_2A:hover .cls-1, #_2B:hover .cls-1, #_2C:hover .cls-1, #_2D:hover .cls-1, #_2E:hover .cls-1, #_2F:hover .cls-1, #_2G:hover .cls-1, #_2H:hover .cls-1, #_2J:hover .cls-1, #_2K:hover .cls-1, #_3A:hover .cls-1, #_3B:hover .cls-1 {
+    fill: #D82F2F;
+    cursor: pointer;
+    stroke-width: 6px;
+}
+#U:hover .fs-70 {
+    font-size: 80px;
+}
+#A:hover .fs-60, #D:hover .fs-50, #G:hover .fs-50, #H:hover .fs-50, #I:hover .fs-60, #K:hover .fs-60, #L:hover .fs-50, #M:hover .fs-50, #N:hover .fs-50, #Ñ:hover .fs-50, #P:hover .fs-50, #R:hover .fs-50, #T:hover .fs-50, #Y:hover .fs-60, #AF:hover .fs-60, #AH:hover .fs-50, #CH:hover .fs-50, #LL:hover .fs-60, #_3A:hover .fs-60, #_3B:hover .fs-60 {
+    font-size: 65px;
+}
+#B:hover .fs-40, #C:hover .fs-40, #E:hover .fs-40, #F:hover .fs-40, #J:hover .fs-40, #O:hover .fs-40, #Q:hover .fs-40, #V:hover .fs-40, #X:hover .fs-40, #Z:hover .fs-40, #AB:hover .fs-40, #AC:hover .fs-40, #AD:hover .fs-40, #AE:hover .fs-40, #AG:hover .fs-40, #_2A:hover .fs-40, #_2D:hover .fs-40 {
+    font-size: 50px;
+}
+#S:hover .fs-25, #W:hover .fs-25, #AA:hover .fs-35, #S1:hover .fs-25, #S2:hover .fs-25, #S3:hover .fs-25, #_2B:hover .fs-35, #_2C:hover .fs-35, #_2E:hover .fs-35, #_2F:hover .fs-35, #_2G:hover .fs-35, #_2H:hover .fs-35, #_2J:hover .fs-35, #_2K:hover .fs-35 {
+    font-size: 45px;
+}
+
+
+/*-----------Propiedades de los poligonos-----------*/
+.cls-1 {
+    fill: transparent;
+    stroke-width: 3px;
+    transition: fill 0.5s, stroke-width 0.5s;
+  }
+  .cls-1, .sm-10, .sw-4 {
+    stroke: #231f20;
+    stroke-miterlimit: 10;
+  }
+  .sw-4 {
+    stroke-width: 0.25px;
+  }
+  /*-----------Tamaños del texto-----------*/
+  .fs-25 {
+    font-size: 25px;
+  }
+  .fs-35 {
+    font-size: 35px;
+  }
+  .fs-40 {
+    font-size: 40px;
+  }
+  .fs-50 {
+    font-size: 50px;
+  }
+  .fs-60 {
+    font-size: 60px;
+  }
+  .fs-70 {
+    font-size: 67px;
+  }
+
+
+  @media (max-width: 768px) {
+    /* For mobile phones: */
+    .map-lg {
+        display: none;
+    }
+    .map-sm {
+      display: block;
+  }
+}
+
+@media (min-width: 769px) {
+    /* For mobile phones: */
+    .map-sm {
+        display: none;
+    } 
+    .map-lg {
+      display: block;
+  }
+}

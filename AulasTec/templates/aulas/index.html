@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>Aulas TEC</title>
+        <!-- Bootstrap & jQuery-->
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script type="text/javascript" src="{% static 'sga/jquery-3.4.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'sga/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'sga/dinamico.js' %}"></script>
+        <script type="text/javascript" src="{% static 'sga/map.js' %}"></script>
+
+        <!-- Mi CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static 'sga/miEstilo.css' %}">
+        <link rel="stylesheet" href="{% static 'sga/map.css' %}">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Itmorelia.png" alt="logo_tec" class="img-fluid" style="max-width: 60px;">
+            <a class="navbar-brand" href="">Aulas Tec</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/mapa">Aulas</a>
+                <a class="nav-item nav-link" href="#">Edificios</a>
+                <a class="nav-item nav-link" href="#">Acerca</a>
+              </div>
+            </div>
+        </nav>
+
+
+        <div class="container">
+            <h1 class="display-4 font-weight-light">Bienvenido al sistema de gestion de aulas del Tec de Morelia.</h1>
+            <div class="text-center">
+                <img src="https://www.mimorelia.com/wp-content/uploads/2020/05/noticias/27/mimorelia_itm.jpg" class="img-fluid" alt="campus">
+            </div>
+            <hr>
+            <h1>Mapa</h1>
+        </div>
+
+            {% include "aulas/map.html" %}
+            <hr>
+        <div class="container">
+            <h2 class="text-muted font-weight-light">Aqui encontraras toda la informacion necesaria acerca de los edificios y aulas del campus.</h2>
+            <br><br>
+
+            <h4>Busqueda por nombre</h4>
+            <form class="form-inline text-center">
+                <input class="form-control mr-sm-4" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+              </form>
+              <br>
+              <br>
+
+            <h4>Lista de edificios/aulas</h4>
+
+            <table style="cursor: pointer;" class="table text-center">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Edificio A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><a type="button" data-toggle="modal" data-target="#exampleModal2">A1</a></th>
+                  </tr>
+                  <tr>
+                    <th scope="row">A2</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">A3</th>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table text-center">
+                <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Edificio B</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">B1</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">B2</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">B3</th>
+                    </tr>
+                  </tbody>
+              </table>
+
+              <table class="table text-center">
+                <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Edificio C</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">C1</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">C2</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">C3</th>
+                    </tr>
+                  </tbody>
+              </table>
+        </div>
+
+        <footer class="text-light bg-dark">
+            <div class="text-center py-3">© 2020 Copyright:
+              <a href="https://wwwwwwwww.jodi.org"> losmanes.com</a>
+            </div>       
+        </footer>
+
+        <div id="exampleModal2" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Edificio A</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <h6>Oficina A1</h6>
+                  <p>El edificio principal del tec, en esta oficina podras encontrar todo tipo de informacion.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Ver mas</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Ayudanos a mejorar</h5>
+
+                  <button id="cerrar" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="text-center" id="miPregunta">
+                                <p>Las siguientes preguntas son para medir su nivel de satisfaccion</p>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="w-25 mx-auto">
+                                <img id="sad" class="imgBtn rounded" src="{% static 'sga/sad.png' %}" width="35">
+                              <img id="neutral" class="imgBtn rounded" src="{% static 'sga/neutral2.png' %}" width="35">
+                              <img id="happy" class="imgBtn rounded" src="{% static 'sga/happy.png' %}" width="35">
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button id="next" type="button" class="btn btn-primary">Siguiente</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+        
+    </body>
+</html>

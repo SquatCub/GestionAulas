@@ -1,0 +1,379 @@
+@font-face {
+    font-family: OpenSans-Regular;
+    src: url(../font/OpenSans-Regular.ttf); 
+  }
+  @font-face {
+    font-family: OpenSans-Bold;
+    src: url(../font/OpenSans-Bold.ttf); 
+  }
+  @font-face {
+    font-family: Font-Awesome;
+    src: url(../font/fontawesome-webfont.ttf); 
+  }
+  @font-face {
+    font-family: Font19;
+    src: url(../font/Nineteenth.otf); 
+  }
+  *{
+      border: 0px solid #000;
+  
+  }
+  
+  
+  
+  .imgBtn
+  {
+    padding: 3px;
+  }
+  
+  .imgBtn:hover
+  {
+    cursor: pointer;
+    transform: scale(1.01);
+    background: #889988;
+  }
+  
+  .black
+  {
+    
+    background-color: #000;
+  }
+  
+  .navbar {
+  }
+  
+  .bg-dark {
+      background-color: #000;
+  }
+  
+  .bg-white {
+      background-color: #fff;
+  }
+  
+  .bg-flat
+  {
+    background: #f6f6f6;
+  }
+  
+  .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+  }
+  
+  .justify-content-end {
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+      padding-right: 150px;
+  }
+  
+  .nav {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      padding-left: 10%;
+      list-style: none;
+  }
+  
+  .dark
+  {
+    color: #000;
+  }
+  
+  .nav-link {
+      display: block;
+      padding: .5rem 1rem;
+  }
+  
+  .nav-item {
+      margin-right: 1%;
+      margin-left: 1%;
+      padding: 5px 10px;
+  }
+  
+  .miBoton 
+  {
+      font-weight: 100;
+      font-family: OpenSans-Bold;
+      text-decoration: none;	
+      border-radius: 5px;
+      padding: 1px;
+      color: #000;
+      font-size: 15px;
+  }
+  
+  .miBotonLG 
+  {
+      font-weight: 100;
+      font-family: OpenSans-Bold;
+      text-decoration: none;	
+      border-radius: 5px;
+      padding: 1px;
+      color: #000;
+      font-size: 15px;
+  }
+  
+  .logo
+  {
+      position: absolute; 
+      top: 0; left: 0; 
+      margin-left: 200px; 
+      margin-top: 0.8%; 
+      height: 50px;
+      
+  }
+  
+  .loNuevo-dark
+  {
+    font-family: OpenSans-Regular;
+    text-decoration: none;  
+      
+    color: #000;
+    font-size: 27px;
+  }
+  
+  .loNuevo-dark-p
+  {
+    font-family: OpenSans-Regular;
+    text-decoration: none;  
+      
+    color: #000;
+    font-size: 17px;
+  
+  }
+  
+  .loNuevo 
+  {
+    font-family: OpenSans-Bold;
+    text-decoration: none;  
+      
+    color: #ffc627;
+    font-size: 30px;
+    margin-left: 15px;
+  }
+  
+  .bigBurguer
+  {
+    font-family: OpenSans-Bold;
+    text-decoration: none;  
+      
+      color: #ffc627;
+    font-size: 30px;
+  }
+  
+  .miContainer
+  {
+    display: flex; margin-top:2%;
+  }
+  
+  .carrusel
+  {
+    margin-left: auto; margin-right: auto;
+  }
+  
+  .container-loNuevo
+  {
+    margin-left: auto; margin-right: auto; display: block;
+  }
+  
+  .text-loNuevo
+  {
+    display: flex; width: 1100px; 
+  }
+  
+  
+  .text-dark
+  {
+    margin-left: 10%;
+  }
+  
+  .mg-t-0
+  {
+    margin-top: 0px;
+  }
+  
+  
+  .botones
+  {
+    width: 1000px;
+  }
+  
+  .text-tarjeta
+  {
+    font-family: OpenSans-Bold;
+    text-decoration: none; 
+      color: #000;
+    font-size: 15px;
+  }
+  
+  .text-card
+  {
+    font-family: OpenSans-Bold;
+    text-decoration: none; 
+      color: #000;
+    font-size: 11px;
+  }
+  
+  .text-card-white
+  {
+    font-family: OpenSans-Bold;
+    text-decoration: none; 
+      color: #fff;
+    font-size: 11px;
+  }
+  
+  .title-card
+  {
+    font-family: OpenSans-Bold;
+    text-decoration: none; 
+      color: #000;
+    font-size: 15px;
+  }
+  
+  .title-card-white
+  {
+    font-family: OpenSans-Bold;
+    text-decoration: none; 
+      color: #fff;
+    font-size: 15px;
+  }
+  
+  
+  .input-ca
+  {
+    border:  2px solid #333355; padding: 5px;
+    min-width: 400px;
+    font-size: 15px;
+  }
+  
+  
+    .contenedor-footer{
+    text-align:center; 
+    width:100%; 
+    height: 10%; 
+    margin-top:2%; 
+    border-top: 2px solid #9898ee;
+  
+  }
+  
+  
+  .miFooter
+  {
+      background-color: #303030;
+      font-size: 14px;
+      font-family: Font19;
+      margin-top: 2%;
+  }
+  
+  .derechos
+  {
+      padding: 20px;
+      background-color: rgba(255, 0, 0, 0.1);
+      text-align: center;
+      margin-bottom: 65px;
+      color: #fff;
+      font-family: OpenSans-Regular;
+  }
+  
+  
+  .itemFooter
+  {
+    text-decoration: none; color: #fff; font-size: 15px; font-family: OpenSans-Regular;
+  }
+  
+  .itemFooter:hover
+  {
+    color: #a5bba5;
+  }
+  
+  
+  
+  .contenedorTarjeta
+  {
+    border-right: 2px solid #9898ee; max-width: 45%;
+  }
+  
+  .m-l-4
+  {
+    margin-left: 4%;
+  }
+  
+  .m-t-2
+  {
+    margin-top: 2%;
+  }
+  
+  .p-d-0
+  {
+    padding: 0px;
+  }
+  
+  .consultar
+  {
+    background: #000; color: #fff; font-family: Font19; text-align: center; padding: 5px 15px 5px 15px; text-decoration: none;
+  }
+  
+  
+  .buscar
+  {
+    border-bottom:  2px solid #333355; padding: 5px;
+  }
+  
+  
+  
+  .cajaTarjeta
+  {
+    max-width: 150px; margin-left: 2%;
+  }
+  
+  
+  
+  .min-hei
+  {
+    min-height: 90%;
+  }
+  
+  
+  .sinDecoracion
+  {
+    text-decoration: none;
+  }
+  
+  
+  .verMas
+  {
+    max-width: 150px; background: #000; color: #fff; font-family: Font19; text-align: center; padding: 5px;
+  }
+  
+  
+  .masFooter
+  {
+    max-width: 30%; display: block; margin-right: auto; margin-left: auto;  padding-bottom: 5%;
+  }
+  
+  
+  .maxWid
+  {
+    max-width: 150px;
+  }
+  
+  
+  
+  .lineaVerde
+  {
+    min-height: 20px; border-left: 2px solid #45bb45;
+  }
+  
+  
+  .m-t-10
+  {
+    margin-top: 10px;
+  }
+  
+  .m-l-30
+  {
+    margin-left: 30px;
+  }
