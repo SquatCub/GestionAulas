@@ -1,0 +1,76 @@
+{% extends "aulas/layout.html" %}
+
+{% block body %}
+<br>
+<div class="container">
+    <h2 class="text-muted font-weight-light">Aqui encontraras toda la informacion necesaria acerca de los edificios y aulas del campus.</h2>
+    <br><hr>
+
+    <h4>Busqueda por nombre</h4>
+    <form class="form-inline text-center">
+        <input class="form-control mr-sm-4" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <br>
+    <br>
+
+    <h4>Lista de edificios/aulas</h4>
+
+    <table style="cursor: pointer;" class="table text-center">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Edificio A</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><a type="button" data-toggle="modal" data-target="#exampleModal2">A1</a></th>
+          </tr>
+          <tr>
+            <th scope="row">A2</th>
+          </tr>
+          <tr>
+            <th scope="row">A3</th>
+          </tr>
+        </tbody>
+      </table>
+      
+      <table class="table text-center">
+        <thead class="thead-light">
+            <tr>
+              <th scope="col">Edificio B</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">B1</th>
+            </tr>
+            <tr>
+              <th scope="row">B2</th>
+            </tr>
+            <tr>
+              <th scope="row">B3</th>
+            </tr>
+          </tbody>
+      </table>
+
+      <table class="table text-center">
+        <thead class="thead-light">
+            <tr>
+              <th scope="col">Edificio C</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">C1</th>
+            </tr>
+            <tr>
+              <th scope="row">C2</th>
+            </tr>
+            <tr>
+              <th scope="row">C3</th>
+            </tr>
+          </tbody>
+      </table>
+</div>
+{% endblock %}

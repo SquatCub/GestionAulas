@@ -1,87 +1,16 @@
 {% extends "aulas/layout.html" %}
 
 {% block body %}
-        <div class="container">
-            <h1 class="display-4 font-weight-light">Bienvenido al sistema de gestion de aulas del Tec de Morelia.</h1>
-            <div class="text-center">
-                <img src="https://www.mimorelia.com/wp-content/uploads/2020/05/noticias/27/mimorelia_itm.jpg" class="img-fluid" alt="campus">
-            </div>
-            <hr>
-            <h1>Mapa</h1>
-        </div>
-
-            {% include "aulas/map.html" %}
-            <hr>
-        <div class="container">
-            <h2 class="text-muted font-weight-light">Aqui encontraras toda la informacion necesaria acerca de los edificios y aulas del campus.</h2>
-            <br><br>
-
-            <h4>Busqueda por nombre</h4>
-            <form class="form-inline text-center">
-                <input class="form-control mr-sm-4" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-              </form>
-              <br>
-              <br>
-
-            <h4>Lista de edificios/aulas</h4>
-
-            <table style="cursor: pointer;" class="table text-center">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">Edificio A</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row"><a type="button" data-toggle="modal" data-target="#exampleModal2">A1</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">A2</th>
-                  </tr>
-                  <tr>
-                    <th scope="row">A3</th>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <table class="table text-center">
-                <thead class="thead-light">
-                    <tr>
-                      <th scope="col">Edificio B</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">B1</th>
-                    </tr>
-                    <tr>
-                      <th scope="row">B2</th>
-                    </tr>
-                    <tr>
-                      <th scope="row">B3</th>
-                    </tr>
-                  </tbody>
-              </table>
-
-              <table class="table text-center">
-                <thead class="thead-light">
-                    <tr>
-                      <th scope="col">Edificio C</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">C1</th>
-                    </tr>
-                    <tr>
-                      <th scope="row">C2</th>
-                    </tr>
-                    <tr>
-                      <th scope="row">C3</th>
-                    </tr>
-                  </tbody>
-              </table>
-        </div>
+<br>
+<div class="container">
+   <h1 class="display-4 font-weight-light">Bienvenido al sistema de gestion de aulas del Tec de Morelia.</h1>
+   <div class="text-center">
+      <img src="https://www.mimorelia.com/wp-content/uploads/2020/05/noticias/27/mimorelia_itm.jpg" class="img-fluid" alt="campus">
+   </div>
+   <hr>
+   <h1>Mapa</h1>
+</div>
+{% include "aulas/map.html" %}
+<hr>
 {% endblock %}
         

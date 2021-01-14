@@ -97,6 +97,9 @@
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
 }
 
 /* Modal Content/Box */
@@ -106,6 +109,22 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+}
+/* Modal Header */
+.modal-header-map {
+  padding: 2px 16px;
+  background-color: #943220;
+  color: white;
+}
+
+/* Modal Body */
+.modal-body-map {padding: 2px 16px;}
+
+/* Modal Footer */
+.modal-footer-map {
+  padding: 2px 16px;
+  background-color: #ccc0a0;
+  color: white;
 }
 
 /* The Close Button */
@@ -121,4 +140,9 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
 }

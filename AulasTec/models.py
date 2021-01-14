@@ -19,6 +19,19 @@ class Edificio(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now_add=True)
 
+
+	def serialize(self):
+			return {
+				"nombre": self.nombre,
+				"especialidad": self.especialidad,
+				"descripcion": self.descripcion,
+				"numAulas": self.numAulas,
+				"numPisos": self.numPisos,
+				"created": self.created_at,
+				"updated": self.updated_at
+			}
+
+
 class Aula(models.Model):
 	edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, related_name="Aula_Edificio", null=False)
 	nombre = models.CharField(max_length=5, null=False)
