@@ -1,0 +1,69 @@
+{% extends "admin/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container mt-5 mb-5 bg-light border p-4 pr-5 pl-5">
+
+    <div class="row bg-white pt-4 pb-4 border">
+
+        <div class="col-12 col-sm-6 border-right d-none d-xs-none d-sm-block d-md-block">
+
+            <br class="d-none d-sm-block d-md-none">
+            <br class="d-none d-sm-block d-md-none">
+
+            <div class="w-100 text-center">
+                <img class="p-1 rounded-circle border border-danger bg-primary logoLogin" src="{% static 'admin/img/logo.png' %}" alt="Image">
+            </div>
+        </div>
+
+
+        <!-- Vsible only XS devices -->
+        <div class="col-12 col-sm-6 border-bottom pb-5 d-block d-sm-none">
+
+            <br class="d-block d-sm-none">
+
+            <div class="w-100 text-center">
+                <img class="p-1 rounded-circle border border-danger bg-primary logoLogin" src="{% static 'admin/img/logo.png' %}" alt="Image">
+            </div>
+
+        </div>
+
+        <div class="col-12 col-sm-6">
+            <div class="w-100 mx-auto pt-4">
+
+                <br class="d-none d-lg-block d-xl-block">
+                <br class="d-none d-lg-block d-xl-block">
+                <br class="d-none d-xl-block">
+
+                <h2 class="text-center mb-5">Login</h2>
+
+                <div class="w-50 mx-auto text-center mb-2">
+                    {% if message %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="pr-2 pl-2 mx-auto">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input autofocus class="form-control" type="text" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="form-group text-center">
+                            <input class="btn btn-primary" type="submit" value="Login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

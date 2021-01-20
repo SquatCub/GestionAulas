@@ -24,3 +24,7 @@ def edificio(request):
     return JsonResponse({"json": edificio.serialize()}, status=201)
 
 
+# VISTAS PARA ADMINISTRACION DEL SITIO
+
+def adminSGA(request):
+	return render(request, "adminSGA/index.html")

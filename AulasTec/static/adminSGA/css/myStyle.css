@@ -1,0 +1,117 @@
+* {
+	border: 0px solid;
+}
+
+.miFooter
+{
+    background-color: rgba(0,0,0,.7);
+    font-size: 14px;
+    font-family: Arial;
+    color: #fff;
+}
+
+.myUser{
+	color: white !important;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+.myUser:hover{
+	cursor: pointer;
+	color: blue !important;
+}
+
+.myUserActive{
+	color: blue !important;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+.myUserActive:hover{
+	cursor: pointer;
+	transform: scale(1.01);
+}
+
+.myFade { 
+	-webkit-animation: fadein 1s; 
+	/* Safari, Chrome and Opera > 12.1 */ -moz-animation: fadein 1s; 
+	/* Firefox < 16 */ -ms-animation: fadein 1s; 
+	/* Internet Explorer */ -o-animation: fadein 1s; 
+	/* Opera < 12.1 */ animation: fadein 1s; 
+} 
+
+	@keyframes fadein 
+	{ 
+		from 
+		{ 
+			opacity: 0; 
+		} 
+		to 
+		{ 
+			opacity: 1; 
+		} 
+	}
+
+.navbar-custom{
+  background-color:rgba(0,0,0,.7)
+}
+.navbar-custom .navbar-brand{
+  letter-spacing:.1rem;
+}
+.navbar-custom .navbar-nav .nav-item .nav-link{
+  letter-spacing:.1rem
+}
+
+.logoLogin
+{
+	width: 95%;
+}
+
+.myBtn
+{
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.myBtn:hover
+{
+	cursor: pointer;
+	background-color: #007bff!important;
+}
+
+.myBtnOut
+{
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.myBtnOut:hover
+{
+	cursor: pointer;
+	color: #fff !important;
+	background-color: #ff0000 !important;
+}
+
+.myRowTable{
+	cursor: pointer;
+	-webkit-font-smoothing:antialiased;
+	-webkit-transition: all 300ms ease-in-out;
+}
+
+.myRowTable:hover
+{
+	transform: scale(1.015);
+	background: #dddfff !important;
+	-webkit-animation: fadein 1s; 
+	/* Safari, Chrome and Opera > 12.1 */ -moz-animation: fadein 1s; 
+	/* Firefox < 16 */ -ms-animation: fadein 1s; 
+	/* Internet Explorer */ -o-animation: fadein 1s; 
+	/* Opera < 12.1 */ animation: fadein 1s; 
+	-webkit-font-smoothing: antialiased;
+    -webkit-transition: all 300ms ease-in-out;
+}
+
+.myRowTable td
+{
+	word-break: break-word !important;
+}
