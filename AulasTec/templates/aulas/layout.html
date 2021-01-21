@@ -5,6 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <title>Aulas TEC</title>
+
+        <link rel="icon" type="image/x-icon" href="{% static 'adminSGA/img/Itmorelia.png' %}">
+
         <!-- Bootstrap & jQuery-->
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script type="text/javascript" src="{% static 'sga/jquery-3.4.1.min.js' %}"></script>
@@ -25,9 +28,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="/">Inicio <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/listado">Listado</a>
-                <a class="nav-item nav-link" href="/acerca">Acerca</a>
+                <a class="nav-item nav-link active" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="{% url 'listado' %}">Listado</a>
+                <a class="nav-item nav-link" href="{% url 'acerca' %}">Acerca</a>
               </div>
             </div>
         </nav>

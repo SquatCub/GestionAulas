@@ -3,6 +3,24 @@
 
 {% block body %}
 
-	HELLO ADMIN!!!
+	<!-----------  HOME   ------------------------------>	
+		<div class="myFade" id="home">
+			<div class="container-fluid col-12 col-sm-11 bg-light border pt-3 pb-2 mt-5 text-center">
+			    <h1>Hello welcome</h1>
+			    <p>
+			    	This is the main page for laboratory administration
+			    </p>
+			</div>
+
+			<div class="container col-10 bg-light border pt-3 pb-2 mt-2 text-center">
+				{% if user.is_authenticated %}   
+					<h3>Hi! {{ user.first_name }} {{ user.last_name }}</h3>
+					<p>
+						For security, always remember to close your session
+					</p>
+		        {% endif %}
+				<a href="{% url 'index' %}"> <= Back to Laboratory Home Page</a>
+			</div>
+		</div>
 
 {% endblock %}

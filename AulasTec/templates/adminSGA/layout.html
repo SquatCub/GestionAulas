@@ -10,7 +10,7 @@
 
         
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="{% static 'adminSGA/img/logo.png' %}">
+        <link rel="icon" type="image/x-icon" href="{% static 'adminSGA/img/Itmorelia.png' %}">
 
         <!-- Import CSS Bootstrap -->
         <link href="{% static 'adminSGA/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -31,8 +31,8 @@
 <!--------------------------- My Navbar ----------------------------------->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
 
-          <a class="navbar-brand">
-            <img src="{% static 'adminSGA/img/logo.png' %}" width="30">
+          <a class="navbar-brand p-0">
+            <img src="{% static 'adminSGA/img/Itmorelia.png' %}" width="45">
           </a>
             
           <div class="w-auto text-center">
@@ -58,25 +58,16 @@
               
               {% if user.is_authenticated %}
 
-                <!-- TAG's <a> whit JS to dinamic work -->
-
-                {% if user.type_user.type_user == "Admin" or user.type_user.type_user == "Chemist Doctor" %}
-                  <a id="btn-patients" class="nav-item nav-link active rounded myBtn">Manage Patients</a>
-                {% endif %}
-
-                {% if user.type_user.type_user == "Admin" or user.type_user.type_user == "Publisher" %}
-                  <a id="btn-publications" id="btn-patients" class="nav-item nav-link active rounded rounded myBtn">Manage Publications</a>
-                {% endif %}
-
-                {% if user.type_user.type_user == "Admin"%}
-                  <a id="btn-users" class="nav-item nav-link active rounded myBtn">Manage Users</a>
-                {% endif %}
+                <a id="btn-patients" class="nav-item nav-link active rounded myBtn">Edificios</a>
+                <a id="btn-publications" id="btn-patients" class="nav-item nav-link active rounded rounded myBtn">Encuestas</a>
+                <a id="btn-users" class="nav-item nav-link active rounded myBtn">Usuarios</a>
+               
 
                 <a id="btn-account" class="nav-link btn btn-outline-light myUser ml-3 mt-2 mb-1 pb-0" style="padding-top: 1px;"><strong>{{ user.first_name }} {{ user.last_name }}</strong></a>
 
-                <a class="nav-item nav-link rounded myBtnOut btn btn-outline-danger" href="#">Logout</a>
+                <a class="nav-item nav-link rounded myBtnOut btn btn-outline-danger" href="{% url 'logout' %}">Logout</a>
               {% else %}
-                <a id="btn-login" class="nav-item nav-link rounded ml-1 text-white btn btn-outline-warning" href="#">Login</a>
+                <a id="btn-login" class="nav-item nav-link rounded ml-1 text-white btn btn-outline-warning" href="{% url 'login' %}">Login</a>
               {% endif %}
 
             </div>

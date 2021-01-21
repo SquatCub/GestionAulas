@@ -1,4 +1,4 @@
-{% extends "admin/layout.html" %}
+{% extends "adminSGA/layout.html" %}
 {% load static %}
 
 {% block body %}
@@ -13,7 +13,7 @@
             <br class="d-none d-sm-block d-md-none">
 
             <div class="w-100 text-center">
-                <img class="p-1 rounded-circle border border-danger bg-primary logoLogin" src="{% static 'admin/img/logo.png' %}" alt="Image">
+                <img class="p-1 logoLogin" src="{% static 'adminSGA/img/Itmorelia.png' %}" alt="Image">
             </div>
         </div>
 
@@ -24,7 +24,7 @@
             <br class="d-block d-sm-none">
 
             <div class="w-100 text-center">
-                <img class="p-1 rounded-circle border border-danger bg-primary logoLogin" src="{% static 'admin/img/logo.png' %}" alt="Image">
+                <img class="p-1 logoLogin" src="{% static 'adminSGA/img/Itmorelia.png' %}" alt="Image">
             </div>
 
         </div>
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="pr-2 pl-2 mx-auto">
-                    <form action="" method="post">
+                    <form action="{% url 'login' %}" method="post">
                         {% csrf_token %}
                         <div class="form-group">
                             <input autofocus class="form-control" type="text" name="email" placeholder="Email">

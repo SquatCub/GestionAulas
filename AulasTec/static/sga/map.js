@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function listener() {
     document.querySelectorAll('.listen').forEach(btn => {
         btn.onclick = function () {
-            fetch('/edificio/', {
+            fetch('/edificio', {
                 method: 'PUT',
                 body: JSON.stringify({edificio_nombre: btn.id})
             })
