@@ -19,6 +19,8 @@ class Edificio(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now_add=True)
 
+	def __str__(self):
+		return f"{self.nombre}"
 
 	def serialize(self):
 			return {
@@ -40,10 +42,16 @@ class Aula(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now_add=True)
 
+	def __str__(self):
+		return f"{self.nombre}"
+
 class Pregunta(models.Model):
 	pregunta = models.CharField(max_length=500, null=False)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return f"{self.pregunta}"
 
 class Respuesta(models.Model):
 	respuesta = models.CharField(max_length=500, null=False)
@@ -51,8 +59,13 @@ class Respuesta(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now_add=True)
 
+	def __str__(self):
+		return f"{self.respuesta}"
+
 class Encuesta(models.Model):
 	pregunta = models.ForeignKey(Pregunta, on_delete=models.CASCADE, related_name="Pregunta_Encuesta", null=False)
 	respuesta = models.ForeignKey(Respuesta, on_delete=models.CASCADE, related_name="Respuesta_Encuesta", null=False)
 	created_at = models.DateTimeField(auto_now_add=True)
-	
+
+	def __str__(self):
+		return f"Encuesta del: {self.created_at.strftime('%b %d %y, %I:%M %p')}"	

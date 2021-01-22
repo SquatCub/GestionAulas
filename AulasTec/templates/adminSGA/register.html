@@ -1,27 +1,21 @@
-{% extends "adminLab/layout.html" %}
+{% extends "adminSGA/layout.html" %}
 
 {% block body %}
 
 <div class="container mt-5 mb-5 bg-light border p-4 pr-5 pl-5">
     <div class="w-75 mx-auto">
         <h2>Register</h2>
+
         {% if message %}
-            <div>{{ message }}</div>
+            <div class="text-center">
+              <div class="alert alert-success w-50 mx-auto">
+                    {{ message }}
+              </div>
+            </div>
         {% endif %}
 
-        <form action="{% url 'adminLab:register' %}" method="post" autocomplete="off">
+        <form action="{% url 'register' %}" method="post" autocomplete="off">
             {% csrf_token %}
-
-            <div class="form-group">
-                <select class="form-control" name="type_user">
-                    <option value="0" disabled selected>Select Permissions User</option>
-
-                    {% for type in types %}
-                        <option value="{{ type.id }}">{{ type.type_user }}</option>
-                    {% endfor %}
-
-                </select>
-            </div>
 
             <div class="form-group">
                 <input class="form-control" type="text" name="first_name" placeholder="Name" required>

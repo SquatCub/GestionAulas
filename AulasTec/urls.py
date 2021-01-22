@@ -1,6 +1,6 @@
 from django.urls import path
-
 from . import views
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     #Rutas para vistas
@@ -14,6 +14,15 @@ urlpatterns = [
 
     #Rutas para Administracion del Sitio
     path("adminSGA", views.adminSGA, name="adminSGA"),
+    path("adminSGA/edificios", views.adminSGA_edificios, name="adminSGA_Edificios"),
+    path("adminSGA/edificios/<str:miEdificio>", views.adminSGA_miEdificio, name="adminSGA_miEdificio"),
+    path("adminSGA/edificios/<str:miEdificio>/edit", views.adminSGA_editEdificio, name="adminSGA_EditEdificio"),
+
+    path("adminSGA/edificios/<str:miEdificio>/newAula", views.adminSGA_newAula, name="adminSGA_newAula"),
+
+
+
     path("login", views.login_view, name="login"),
-    path("logout", views.logout_view, name="logout")
+    path("logout", views.logout_view, name="logout"),
+    path("register", login_required(views.register_view), name="register")
 ]

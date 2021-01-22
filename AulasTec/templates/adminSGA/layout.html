@@ -24,8 +24,12 @@
         <!-- Import of my file CSS (This file content animations and styles customs) -->
         <link href="{% static 'adminSGA/css/myStyle.css' %}" rel="stylesheet">
 
+        <!-- Mi CSS MAP -->
+        <link rel="stylesheet" href="{% static 'sga/map.css' %}">
+
         <!-- Import of my file JS (This file content specific functions to work my web site dinamic) -->
         <script type="text/javascript" src="{% static 'adminSGA/js/dinamico.js' %}"></script>
+
     </head>
     <body id="myBody">
 <!--------------------------- My Navbar ----------------------------------->
@@ -39,7 +43,7 @@
 
             <span class="font-weight-bold text-white aling-middle">Administracion</span><br class="d-lg-none">
 
-            <span class="font-weight-bold text-primary aling-middle">SISTEMA GESTOR DE AULAS</span>
+            <span class="font-weight-bold text-primary aling-middle">SGA</span>
             
           </div>
             
@@ -58,9 +62,9 @@
               
               {% if user.is_authenticated %}
 
-                <a id="btn-patients" class="nav-item nav-link active rounded myBtn">Edificios</a>
+                <a id="btn-patients" class="nav-item nav-link active rounded myBtn" href="{% url 'adminSGA_Edificios' %}">Edificios</a>
                 <a id="btn-publications" id="btn-patients" class="nav-item nav-link active rounded rounded myBtn">Encuestas</a>
-                <a id="btn-users" class="nav-item nav-link active rounded myBtn">Usuarios</a>
+                <a id="btn-users" class="nav-item nav-link active rounded myBtn" href="{% url 'register' %}">Usuarios</a>
                
 
                 <a id="btn-account" class="nav-link btn btn-outline-light myUser ml-3 mt-2 mb-1 pb-0" style="padding-top: 1px;"><strong>{{ user.first_name }} {{ user.last_name }}</strong></a>
