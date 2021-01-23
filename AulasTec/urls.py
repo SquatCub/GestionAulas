@@ -10,7 +10,7 @@ urlpatterns = [
 
     #Rutas para APIs
     path("edificio", views.edificio, name="edificio"),
-
+    path("buscar", views.busqueda, name="buscar"),
 
     #Rutas para Administracion del Sitio
     path("adminSGA", views.adminSGA, name="adminSGA"),
