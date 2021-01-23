@@ -23,7 +23,28 @@ def about(request):
     return render(request, "aulas/about.html")
 
 def listado(request):
-    return render(request, "aulas/listado.html")
+    edificios = Edificio.objects.all()
+    aulas = Aula.objects.all()
+    return render(request, "aulas/listado.html", {
+        "edificios": edificios,
+        "aulas": aulas
+    })
+
+@csrf_exempt
+def busqueda(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "GET request required."}, status=400)
+
+    try:
+        data = json.loads(request.body)
+        value = data.get("value", "")
+
+        edificios = Edificio.objects.all().filter(nombre__icontains=value)
+        aulas = Aula.objects.all().filter(nombre__icontains=value)
+
+        return JsonResponse({"edificios": [edificio.serialize() for edificio in edificios], "aulas": [aula.serialize() for aula in aulas]}, status=201, safe=False)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=201)
 
 @csrf_exempt
 def edificio(request):

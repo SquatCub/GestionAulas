@@ -45,6 +45,14 @@ class Aula(models.Model):
 	def __str__(self):
 		return f"{self.nombre}"
 
+
+	def serialize(self):
+		return {
+			"edificio": self.edificio.serialize(),
+			"nombre": self.nombre,
+			"descripcion": self.descripcion
+		}
+
 class Pregunta(models.Model):
 	pregunta = models.CharField(max_length=500, null=False)
 	created_at = models.DateTimeField(auto_now_add=True)
