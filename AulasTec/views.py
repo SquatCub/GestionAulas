@@ -156,7 +156,7 @@ def adminSGA_editAula(request, miAula):
             file = None
 
             if 'horario' in request.FILES.keys():
-                file = request.FILES['file']   
+                file = request.FILES['horario']   
 
             dataAula.horario = file
             dataAula.updated_at = datetime.now()
@@ -169,7 +169,7 @@ def adminSGA_editAula(request, miAula):
 
         except Exception as e:
             dataAula = Aula.objects.get(nombre=miAula)
-            return render(request, "adminSGA/edit_edificio.html", {
+            return render(request, "adminSGA/edit_aula.html", {
                 "aula": dataAula,
                 "message": "A Ocurrido un Error al Intentar Guardar la Informacion, No se efectuaron Cambios!."
                 })
