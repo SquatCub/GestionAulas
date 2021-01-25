@@ -1,0 +1,77 @@
+{% extends "adminSGA/layout.html" %}
+{% load static %}
+
+{% block body %}
+	<div class="myFade" id="patients">
+		<div class="container-fluid col-12 col-sm-11 bg-light border pt-3 pb-2 mt-5 text-center">
+		    <h1>Cambiar Información de Aula {{aula}} para el Edificio "{{edificio}}"</h1>
+		    <p>
+		    	<span class="font-italic">Esta es la pagina principal para la Aministracion de Sistema SGA</span>
+		    	<br>
+		    	<span class="mt-2 font-weight-bold">Aqui puedes Cambiar la Información del Aula {{aula}} para el Edificio "{{edificio}}"</span>
+		    </p>
+		</div>
+
+		<div class="container col-10 bg-light border pt-4 pb-3 mt-2">
+			<div class="text-center">
+
+				<h3>Informacion del Aula "{{aula}}"</h3>
+
+				<div class="row justify-content-sm-center pt-3">
+
+					<div class="col-12 col-sm-6">
+
+						{% if message %}
+				            <div class="text-center">
+				              <div class="alert alert-success w-50 mx-auto">
+				                    {{ message }} <br>
+
+				              		<a class="btn btn-primary btn-sm mt-2" href="{% url 'adminSGA_miEdificio' edificio.nombre %}">Volver</a>
+				              </div>
+				            </div>
+				        {% endif %}
+	
+	                    <form action="{% url 'adminSGA_editAula' edificio.nombre aula.nombre %}" method="POST" enctype="multipart/form-data"  autocomplete="off">
+	                        {% csrf_token %}
+
+	                        <div class="form-group text-left">
+	                        	<label class="font-weight-bold" for="nombre">Nombre</label>
+	                            <input class="form-control" type="text" name="nombre" placeholder="Nombre del Aula" value="{{aula.nombre}}" required>
+	                        </div>
+
+	                        <div class="form-group text-left">
+	                        	<label class="font-weight-bold" for="nombre">Descripcion</label>
+	                            <textarea class="form-control" rows="7" name="descripcion" required> {{aula.descripcion}} </textarea>
+	                        </div>
+
+	                        <div class="form-group text-left">
+	                        	<label class="font-weight-bold" for="nombre">Horario Actual, Actual File PDF</label>
+	                        	<br>
+	                            <a class="btn btn-primary btn-sm pt-0 pb-0" href="#">
+									{% if aula.horario %}
+										{{ aula.horario.url }}
+									{% else %}
+										Sin Horario
+									{% endif %}
+								</a>
+	                        </div>
+
+	                        <div class="form-group text-left">
+		                        <label class="font-weight-bold">Nuevo Horario, File PDF</label>
+		                        <input type="file" class="form-control-file" name="horario" accept="application/pdf">
+	                        </div>
+
+	                        <div class="form-group text-center mt-4">
+	                            <input class="btn btn-warning" type="submit" value="Guardar Cambios">
+	                        </div>
+	                    </form>
+
+	                </div>
+                </div>
+
+			</div>
+		</div>
+
+	</div>
+
+{% endblock %}
