@@ -17,6 +17,8 @@ urlpatterns = [
     path("adminSGA/edificios", views.adminSGA_edificios, name="adminSGA_Edificios"),
     path("adminSGA/edificios/<str:miEdificio>", views.adminSGA_miEdificio, name="adminSGA_miEdificio"),
     path("adminSGA/edificios/<str:miEdificio>/edit", views.adminSGA_editEdificio, name="adminSGA_EditEdificio"),
+    path("adminSGA/aula/<str:miAula>/delete", views.adminSGA_elimAula, name="adminSGA_elimAula"),
+    path("adminSGA/aulas/<str:miAula>/edit", views.adminSGA_editAula, name="adminSGA_EditAula"),
 
     path("adminSGA/edificios/<str:miEdificio>/newAula", views.adminSGA_newAula, name="adminSGA_newAula"),
 

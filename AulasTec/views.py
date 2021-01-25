@@ -146,6 +146,49 @@ def adminSGA_newAula(request, miEdificio):
             "edificio": dataEdificio
             })
 
+def adminSGA_editAula(request, miAula):
+    if request.method == "POST":
+        try:
+            dataAula = Aula.objects.get(nombre=miAula)
+
+            dataAula.nombre = request.POST["nombre"]
+            dataAula.descripcion = request.POST["descripcion"]
+            file = None
+
+            if 'horario' in request.FILES.keys():
+                file = request.FILES['file']   
+
+            dataAula.horario = file
+            dataAula.updated_at = datetime.now()
+            dataAula.save()
+
+            return render(request, "adminSGA/edit_aula.html", {
+                "aula": dataAula,
+                "message": "Se Guardaron los Cambios!"
+                })
+
+        except Exception as e:
+            dataAula = Aula.objects.get(nombre=miAula)
+            return render(request, "adminSGA/edit_edificio.html", {
+                "aula": dataAula,
+                "message": "A Ocurrido un Error al Intentar Guardar la Informacion, No se efectuaron Cambios!."
+                })
+    else:
+        try:
+            dataAula = Aula.objects.get(nombre=miAula)
+        except Exception as e:
+            return HttpResponse("NEL")
+
+        return render(request, "adminSGA/edit_aula.html", {
+            "aula": dataAula
+            })
+
+def adminSGA_elimAula(request, miAula):
+    if request.method == "POST":
+        dataAula = Aula.objects.get(nombre=miAula)
+        edificio = dataAula.edificio
+        dataAula.delete()
+        return HttpResponseRedirect(reverse("adminSGA_miEdificio", args=(edificio.nombre, )))
 
 # Login (POST Login / GET Render View)
 def login_view(request):

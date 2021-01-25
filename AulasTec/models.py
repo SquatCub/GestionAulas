@@ -11,7 +11,7 @@ class User(AbstractUser):
     updated_at = models.DateTimeField(auto_now_add=True)
 
 class Edificio(models.Model):
-	nombre = models.CharField(max_length=5, null=False)
+	nombre = models.CharField(max_length=5, null=False, unique=True)
 	especialidad = models.CharField(max_length=100, null=True)
 	descripcion = models.CharField(max_length=200, null=True)
 	numAulas = models.IntegerField()
@@ -35,7 +35,7 @@ class Edificio(models.Model):
 
 
 class Aula(models.Model):
-	edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, related_name="Aula_Edificio", null=False)
+	edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, related_name="Aula_Edificio", null=False, unique=True)
 	nombre = models.CharField(max_length=5, null=False)
 	descripcion = models.CharField(max_length=200, null=True)
 	horario = models.FileField(upload_to="MEDIA/Horarios/", null=True, blank=True)

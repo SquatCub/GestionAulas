@@ -91,8 +91,14 @@
 
 									<td>{{ aula.updated_at|date:'M d Y, h:i' }}</td>
 
-									<td style="word-break: unset !important;"> <a class="btn btn-warning btn-sm pt-0 pb-0" href="#">Editar</a></td>
-									<td style="word-break: unset !important;"> <a class="btn btn-danger btn-sm pt-0 pb-0" href="#">Quitar</a></td>
+									<td style="word-break: unset !important;"> <a class="btn btn-warning btn-sm pt-0 pb-0" href="{% url 'adminSGA_EditAula' aula.nombre %}">Editar</a></td>
+									<td style="word-break: unset !important;">
+										<form method="POST" action="{% url 'adminSGA_elimAula' aula.nombre %}">
+											{% csrf_token %}
+											<button class="btn btn-danger btn-sm pt-0 pb-0" type="submit">Quitar</button>
+										</form>
+									</td>	 
+									
 								</tr>
 							{% endfor %}
 						{% else %}
@@ -107,4 +113,5 @@
 		</div>
 	</div>
 
+	<br><br>
 {% endblock %}
