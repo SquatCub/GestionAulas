@@ -1,0 +1,65 @@
+{% extends "adminSGA/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container-fluid col-12 col-sm-11 bg-light border pt-3 pb-2 mt-5 text-center">
+    <h1>Usuarios</h1>
+    <p>
+        <span class="font-italic">Ventana para gestionar usuarios del sistema</span>
+        <br>
+    </p>
+    <a class="btn btn-primary" href="{% url 'register' %}">Registrar</a>
+    <br><br>
+
+    <div class="table-responsive-sm">
+        <table class="table text-center bg-white">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Celular</th>
+                <th scope="col">Email</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Quitar</th>
+              </tr>
+            </thead>
+            
+            <tbody id="patients_tbody">
+    
+                {% if users %}
+    
+                    {% for user in users %}
+                        <tr class="myRowTable rounded border">
+                            <th scope="row">{{ user.first_name }}</th>
+                            <td>{{ user.last_name }}</td>
+                            <td>{{ user.celphone }}</td>
+                            <td>{{ user.email }}</td>
+    
+                            <td style="word-break: unset !important;"> <a class="btn btn-warning btn-sm pt-0 pb-0" href="{% url 'adminSGA_EditUser' user.id %}">Editar</a></td>
+                            <td style="word-break: unset !important;">
+                                {% if not request.user == user %}
+                                <form method="POST" action="{% url 'adminSGA_elimUser' user.id %}">
+                                    {% csrf_token %}
+                                    <button class="btn btn-danger btn-sm pt-0 pb-0" type="submit">Quitar</button>
+                                </form>
+                                {% endif %}
+                            </td>	 
+                            
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr class="myRowTable rounded border">
+                        <th></th>  <td>NO DATA :(</td>  <td></td>  <td></td> <td></td> <td></td> <td></td>
+                    </tr>
+                {% endif %}
+    
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

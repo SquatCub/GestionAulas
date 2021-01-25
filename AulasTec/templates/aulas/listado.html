@@ -7,70 +7,41 @@
     <br><hr>
 
     <h4>Busqueda por nombre</h4>
-    <form class="form-inline text-center">
-        <input class="form-control mr-sm-4" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
+        <input id="texto" class="form-control mr-sm-4" placeholder="Search">
+        <button class="btn btn-outline-dark my-2 my-sm-0" onclick="buscar()">Search</button>
+
     <br>
     <br>
 
     <h4>Lista de edificios/aulas</h4>
 
-    <table style="cursor: pointer;" class="table text-center">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">Edificio A</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"><a type="button" data-toggle="modal" data-target="#exampleModal2">A1</a></th>
-          </tr>
-          <tr>
-            <th scope="row">A2</th>
-          </tr>
-          <tr>
-            <th scope="row">A3</th>
-          </tr>
-        </tbody>
-      </table>
-      
-      <table class="table text-center">
-        <thead class="thead-light">
-            <tr>
-              <th scope="col">Edificio B</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">B1</th>
-            </tr>
-            <tr>
-              <th scope="row">B2</th>
-            </tr>
-            <tr>
-              <th scope="row">B3</th>
-            </tr>
-          </tbody>
-      </table>
+    <div id="content-table">
+      {% for edificio in edificios %}
+      <div id="accordion">
+        <div class="card text-center">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{ edificio.nombre }}" aria-expanded="true" aria-controls="collapseOne{{ edificio.nombre }}">
+                {{ edificio.nombre }}
+              </button>
+            </h5>
+          </div>
 
-      <table class="table text-center">
-        <thead class="thead-light">
-            <tr>
-              <th scope="col">Edificio C</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">C1</th>
-            </tr>
-            <tr>
-              <th scope="row">C2</th>
-            </tr>
-            <tr>
-              <th scope="row">C3</th>
-            </tr>
-          </tbody>
-      </table>
+          <div id="collapseOne{{ edificio.nombre }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              {% for aula in aulas%}
+                {% if aula.edificio == edificio %}
+                  <a href="">{{ aula.nombre }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+    </div>
 </div>
+<br>
 {% endblock %}

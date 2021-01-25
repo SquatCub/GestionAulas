@@ -1,0 +1,117 @@
+{% extends "adminSGA/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+	<div class="myFade" id="patients">
+		<div class="container-fluid col-12 col-sm-11 bg-light border pt-3 pb-2 mt-5 text-center">
+		    <h1>{{edificio}}</h1>
+		    <p>
+		    	<span class="font-italic">Esta es la pagina principal para la Aministracion de Sistema SGA</span>
+		    	<br>
+		    	<span class="mt-2 font-weight-bold">Aqui puedes ver toda la informacion acerca del Edificio "{{edificio}}", Intenta hacer click sobre una fila de la tabla para ver la Informacion Cerca de un Aula</span>
+		    </p>
+		</div>
+
+		<div class="container col-10 bg-light border pt-4 pb-3 mt-2 pl-5 pr-5 pb-4">
+			<h3>Información del Edificio "{{edificio}}"</h3>
+			<div class="ml-2 mt-2">
+				<label>Ultima Actualización: {{ edificio.updated_at|date:'M d Y, h:i' }}</label>
+			</div>
+
+			{% if message %}
+	            <div class="text-center">
+	              <div class="alert alert-success w-50 mx-auto">
+	                    {{ message }}
+	              </div>
+	            </div>
+	        {% endif %}
+
+			<div class="row mt-1 w-100 mx-auto">
+				<div class="col-sm-1">
+					
+				</div>
+				<div class="col-12 col-sm-4">
+					<b>Nombre: </b> <span>{{ edificio.nombre }}</span> <br>
+					<b>Especialidad: </b> <span>{{ edificio.especialidad }}</span> <br>
+					<b>Descripcion: </b> <span>{{ edificio.descripcion }}</span> <br>
+				</div>
+
+				<div class="col-12 col-sm-3">
+					<b>Número de Aulas: </b> <span>{{ edificio.numAulas }}</span> <br>
+					<b>Número de Pisos: </b> <span>{{ edificio.numPisos }}</span> <br>
+				</div>
+
+				<div class="col-12 col-sm-4 pl-5 mt-2">
+					<a class="btn btn-warning mt-2" href="{% url 'adminSGA_EditEdificio' edificio.nombre %}">Cambiar Información</a>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="container col-12 col-sm-10 bg-light border pt-3 pb-2 mt-2">
+
+			<!-- Button to Add New Aula -->
+			<div class="row justify-content-center mb-3">
+				<a class="btn btn-primary" href="{% url 'adminSGA_newAula' edificio.nombre %}">Agregar Aula al Edificio "{{edificio}}"</a>
+			</div>
+
+			<div class="table-responsive-sm">
+				<table class="table text-center bg-white">
+					<thead class="bg-primary text-white">
+					  <tr>
+						<th scope="col">Edificio</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Descripcion</th>
+						<th scope="col">Horario</th>
+						<th scope="col">Ultima Actualización</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Quitar</th>
+					  </tr>
+					</thead>
+					
+					<tbody id="patients_tbody">
+
+						{% if aulas %}
+
+							{% for aula in aulas %}
+								<tr class="myRowTable rounded border">
+									<th scope="row">{{ aula.edificio }}</th>
+									<td>{{ aula.nombre }}</td>
+									<td>{{ aula.descripcion }}</td>
+									<td style="word-break: unset !important;"> 
+										<a class="btn btn-primary btn-sm pt-0 pb-0" href="#">
+											{% if aula.horario %}
+												{{ aula.horario.url }}
+											{% else %}
+												Sin Horario
+											{% endif %}
+										</a>
+									</td>
+
+									<td>{{ aula.updated_at|date:'M d Y, h:i' }}</td>
+
+									<td style="word-break: unset !important;"> <a class="btn btn-warning btn-sm pt-0 pb-0" href="{% url 'adminSGA_EditAula' aula.nombre %}">Editar</a></td>
+									<td style="word-break: unset !important;">
+										<form method="POST" action="{% url 'adminSGA_elimAula' aula.nombre %}">
+											{% csrf_token %}
+											<button class="btn btn-danger btn-sm pt-0 pb-0" type="submit">Quitar</button>
+										</form>
+									</td>	 
+									
+								</tr>
+							{% endfor %}
+						{% else %}
+							<tr class="myRowTable rounded border">
+								<th></th>  <td>NO DATA :(</td>  <td></td>  <td></td> <td></td> <td></td> <td></td>
+							</tr>
+						{% endif %}
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<br><br>
+{% endblock %}

@@ -5,6 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <title>Aulas TEC</title>
+
+        <link rel="icon" type="image/x-icon" href="{% static 'adminSGA/img/Itmorelia.png' %}">
+
         <!-- Bootstrap & jQuery-->
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script type="text/javascript" src="{% static 'sga/jquery-3.4.1.min.js' %}"></script>
@@ -18,17 +21,22 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Itmorelia.png" alt="logo_tec" class="img-fluid" style="max-width: 60px;">
+            <img src="{% static 'adminSGA/img/logo-mapas.png' %}" alt="logo_tec" class="img-fluid" style="max-width: 50px;">
             <a class="navbar-brand" href="/">Aulas Tec</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="/">Inicio <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/listado">Listado</a>
-                <a class="nav-item nav-link" href="/acerca">Acerca</a>
+                <a class="nav-item nav-link active" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="{% url 'listado' %}">Listado</a>
+                <a class="nav-item nav-link" href="{% url 'acerca' %}">Acerca</a>
               </div>
+               <div class="navbar-nav ml-auto text-center">
+              
+                  <a id="btn-home" class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                  
+               </div>
             </div>
         </nav>
 
