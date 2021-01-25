@@ -190,6 +190,52 @@ def adminSGA_elimAula(request, miAula):
         dataAula.delete()
         return HttpResponseRedirect(reverse("adminSGA_miEdificio", args=(edificio.nombre, )))
 
+def adminSGA_users(request):
+    users = User.objects.all()
+    return render(request, "adminSGA/users.html", {
+        "users": users
+    })
+
+def adminSGA_editUser(request, id):
+    if request.method == "POST":
+        try:
+            dataUser = User.objects.get(id=id)
+
+            dataUser.first_name = request.POST["nombre"]
+            dataUser.last_name = request.POST["apellido"]
+            dataUser.celphone = request.POST["phone"]
+            #dataUser.email = request.POST["email"]
+
+            dataUser.save()
+
+            return render(request, "adminSGA/edit_user.html", {
+                "user": dataUser,
+                "message": "Se Guardaron los Cambios!"
+                })
+
+        except Exception as e:
+            dataUser = User.objects.get(id=id)
+            return render(request, "adminSGA/edit_user.html", {
+                "user": dataUser,
+                "message": "A Ocurrido un Error al Intentar Guardar la Informacion, No se efectuaron Cambios!."
+                })
+    else:
+        try:
+            dataUser = User.objects.get(id=id)
+        except Exception as e:
+            return HttpResponse("NEL")
+
+        return render(request, "adminSGA/edit_user.html", {
+            "user": dataUser
+            })
+
+def adminSGA_elimUser(request, id):
+    if request.method == "POST":
+        dataUser = User.objects.get(id=id)
+        dataUser.delete()
+        return HttpResponseRedirect(reverse("adminSGA_users"))
+
+
 # Login (POST Login / GET Render View)
 def login_view(request):
     if request.method == "POST":
