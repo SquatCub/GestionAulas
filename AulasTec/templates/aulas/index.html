@@ -1,14 +1,17 @@
 {% extends "aulas/layout.html" %}
+{% load static %}
 
 {% block body %}
 <br>
-<div class="container">
-   <h1 class="display-4 font-weight-light">Bienvenido al sistema de gestion de aulas del Tec de Morelia.</h1>
+<div class="container text-center">
+   <h1 class="display-4 font-weight-light">Bienvenido al mapa interactivo del Tec de Morelia</h1>
    <div class="text-center">
-      <img src="https://www.mimorelia.com/wp-content/uploads/2020/05/noticias/27/mimorelia_itm.jpg" class="img-fluid" alt="campus">
+      <img src="{% static 'adminSGA/img/logo-mapas.png' %}" width="400px" class="img-fluid" alt="campus">
    </div>
    <hr>
-   <h1>Mapa</h1>
+   <br>
+   <h1 class="display-4 font-weight-light">Mapa</h1>
+   <br><br>
 </div>
 {% include "aulas/map.html" %}
 <hr>

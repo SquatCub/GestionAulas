@@ -2,3 +2,8 @@ app/app/settings.py
 __pycache__/
 db.sqlite3
 .DS_Store
+*.sqlite3
+db.sqlite3
+db.sqlite3
+*.sqlite3
+*.sqlite3
