@@ -4,18 +4,18 @@
 {% block body %}
 	<div class="myFade" id="patients">
 		<div class="container-fluid col-12 col-sm-11 bg-light border pt-3 pb-2 mt-5 text-center">
-		    <h1>Cambiar Información de Aula {{aula}} para el Edificio "{{edificio}}"</h1>
+		    <h1>Cambiar Información de Aula {{aula.nombre}} para el Edificio "{{aula.edificio.nombre}}"</h1>
 		    <p>
 		    	<span class="font-italic">Esta es la pagina principal para la Aministracion de Sistema SGA</span>
 		    	<br>
-		    	<span class="mt-2 font-weight-bold">Aqui puedes Cambiar la Información del Aula {{aula}} para el Edificio "{{edificio}}"</span>
+		    	<span class="mt-2 font-weight-bold">Aqui puedes Cambiar la Información del Aula {{aula.nombre}} para el Edificio "{{aula.edificio.nombre}}"</span>
 		    </p>
 		</div>
 
 		<div class="container col-10 bg-light border pt-4 pb-3 mt-2">
 			<div class="text-center">
 
-				<h3>Cambiar Información del Edificio "{{aula}}"</h3>
+				<h3>Cambiar Información del Aula "{{aula.nombre}}"</h3>
 				<div class="ml-2 mt-2">
 					<label>Ultima Actualización: {{ aula.updated_at|date:'M d Y, h:i' }}</label>
 				</div>
@@ -57,7 +57,7 @@
 	                        	<br>
 	                            <a class="btn btn-primary btn-sm pt-0 pb-0" href="#">
 									{% if aula.horario %}
-										{{ aula.horario.url }}
+										{{ aula.horario }}
 									{% else %}
 										Sin Horario
 									{% endif %}

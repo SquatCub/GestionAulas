@@ -12,6 +12,7 @@ urlpatterns = [
     #Rutas para APIs
     path("edificio", views.edificio, name="edificio"),
     path("buscar", views.busqueda, name="buscar"),
+    path("File/<int:idAula>", views.file_api, name="File"),
 
     #Rutas para Administracion del Sitio
     path("adminSGA", views.adminSGA, name="adminSGA"),

@@ -5,6 +5,7 @@
 
 	<div class="myFade" id="patients">
 		<div class="container-fluid col-12 col-sm-11 bg-light border pt-3 pb-2 mt-5 text-center">
+
 		    <h1>{{edificio}}</h1>
 		    <p>
 		    	<span class="font-italic">Esta es la pagina principal para la Aministracion de Sistema SGA</span>
@@ -76,17 +77,15 @@
 
 							{% for aula in aulas %}
 								<tr class="myRowTable rounded border">
-									<th scope="row">{{ aula.edificio }}</th>
+									<th scope="row">{{ aula.edificio.nombre }}</th>
 									<td>{{ aula.nombre }}</td>
 									<td>{{ aula.descripcion }}</td>
 									<td style="word-break: unset !important;"> 
-										<a class="btn btn-primary btn-sm pt-0 pb-0" href="#">
-											{% if aula.horario %}
-												{{ aula.horario.url }}
-											{% else %}
-												Sin Horario
-											{% endif %}
-										</a>
+										{% if aula.horario %}
+											<a class="btn btn-primary btn-sm pt-0 pb-0" href="{% url 'File' aula.id %}" target="blank"> {{ aula.horario }} </a>
+										{% else %}
+											<a class="btn btn-primary btn-sm pt-0 pb-0" href="#"> Sin Horario </a>
+										{% endif %}
 									</td>
 
 									<td>{{ aula.updated_at|date:'M d Y, h:i' }}</td>

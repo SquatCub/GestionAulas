@@ -11,6 +11,7 @@ from datetime import datetime
 from django.http import JsonResponse
 
 from django.views.decorators.csrf import csrf_exempt
+from . import util
 
 from .models import User, Edificio, Aula
 
@@ -71,12 +72,23 @@ def adminSGA_miEdificio(request, miEdificio):
         try:
             dataEdificio = Edificio.objects.get(nombre=miEdificio)
             listAulas = Aula.objects.filter(edificio=dataEdificio) 
+
+            myAulas = []
+
+            for aula in listAulas:
+                dataAula = aula.serialize()
+
+                if aula.horario:
+                    dataAula['horario'] = str(aula.horario).split('/')[-1]
+
+                myAulas.append(dataAula) 
+
         except Exception as e:
             return HttpResponse("NEL")
 
         return render(request, "adminSGA/open_edificio.html", {
             "edificio": dataEdificio,
-            "aulas": listAulas
+            "aulas": myAulas
             })
     else:
         return HttpResponse("NEL")
@@ -176,11 +188,16 @@ def adminSGA_editAula(request, miAula):
     else:
         try:
             dataAula = Aula.objects.get(nombre=miAula)
+
+            myAula = dataAula.serialize()
+            if dataAula.horario:
+                myAula['horario'] = str(dataAula.horario).split('/')[-1]
+
         except Exception as e:
             return HttpResponse("NEL")
 
         return render(request, "adminSGA/edit_aula.html", {
-            "aula": dataAula
+            "aula": myAula
             })
 
 def adminSGA_elimAula(request, miAula):
@@ -234,6 +251,17 @@ def adminSGA_elimUser(request, id):
         dataUser = User.objects.get(id=id)
         dataUser.delete()
         return HttpResponseRedirect(reverse("adminSGA_users"))
+
+
+def file_api(request, idAula):
+    try:
+        aula = Aula.objects.get(id=idAula)
+        url = str(Aula.horario)
+        return FileResponse(open(url, 'rb'))
+    except Exception as e:
+        print(e)
+        return HttpResponse("ERROR 404, File Not Found")
+
 
 
 # Login (POST Login / GET Render View)
