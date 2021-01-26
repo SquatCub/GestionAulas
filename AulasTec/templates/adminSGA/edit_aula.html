@@ -55,13 +55,11 @@
 	                        <div class="form-group text-left">
 	                        	<label class="font-weight-bold" for="nombre">Horario Actual, Actual File PDF</label>
 	                        	<br>
-	                            <a class="btn btn-primary btn-sm pt-0 pb-0" href="#">
-									{% if aula.horario %}
-										{{ aula.horario }}
-									{% else %}
-										Sin Horario
-									{% endif %}
-								</a>
+	                            {% if aula.horario %}
+									<a class="btn btn-primary btn-sm pt-0 pb-0" href="{% url 'File' aula.id %}" target="blank"> {{ aula.horario }} </a>
+								{% else %}
+									<a class="btn btn-primary btn-sm pt-0 pb-0" href="#"> Sin Horario </a>
+								{% endif %}
 	                        </div>
 
 	                        <div class="form-group text-center mt-4">

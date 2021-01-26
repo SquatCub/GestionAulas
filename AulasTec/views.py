@@ -134,7 +134,7 @@ def adminSGA_newAula(request, miEdificio):
             file = None
 
             if 'horario' in request.FILES.keys():
-                file = request.FILES['file']        
+                file = request.FILES['horario']        
 
             newAula = Aula(edificio=dataEdificio, nombre=request.POST["nombre"], descripcion=request.POST["descripcion"], horario=file)
 
@@ -254,13 +254,10 @@ def adminSGA_elimUser(request, id):
 
 
 def file_api(request, idAula):
-    try:
+    if request.method == "GET":
         aula = Aula.objects.get(id=idAula)
-        url = str(Aula.horario)
+        url = str(aula.horario)
         return FileResponse(open(url, 'rb'))
-    except Exception as e:
-        print(e)
-        return HttpResponse("ERROR 404, File Not Found")
 
 
 
