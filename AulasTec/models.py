@@ -64,9 +64,15 @@ class Pregunta(models.Model):
 	def __str__(self):
 		return f"{self.pregunta}"
 
+	def serialize(self):
+		return {
+			"id": self.id,
+			"pregunta": self.pregunta
+		}
+
 class Respuesta(models.Model):
 	respuesta = models.CharField(max_length=500, null=False)
-	valor = models.IntegerField()
+	valor = models.IntegerField(unique=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now_add=True)
 

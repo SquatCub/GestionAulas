@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	loadEditAccount();
 	loadListenersDelete();
 	listener();
+
+	listenerURL();
+
 	verifyHeightBody();
 });
 
@@ -50,6 +53,25 @@ function alertSuccess(result, extras)
 
 
 ///// -*-*-*-*-*-*-*-*-*-*-*-*-* FUNTIONS DINAMIC WEB PAGE -*-*-*-*-*-*-*-*-*-*-*-*-* /////
+
+function listenerURL()
+{
+	switch(window.location.toString().split('/')[4])
+	{
+		case "edificios":
+		activeButtonsNavbar('patients');
+		break;
+
+		case "encuestas":
+		activeButtonsNavbar('publications');
+		break;
+
+		case "users":
+		activeButtonsNavbar('users');
+		break;
+	}
+}
+
 
 // Load onClick Listener buttons Delete's Modal
 function loadListenersDelete()

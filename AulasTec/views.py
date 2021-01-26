@@ -13,7 +13,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from . import util
 
-from .models import User, Edificio, Aula
+from .models import User, Edificio, Aula, Pregunta, Respuesta, Encuesta
 
 # Create your views here.
 
@@ -30,6 +30,17 @@ def listado(request):
         "edificios": edificios,
         "aulas": aulas
     })
+
+def encuesta(request):
+    preguntas = Pregunta.objects.all()
+    return JsonResponse([pregunta.serialize() for pregunta in preguntas], safe=False)
+
+def puntar(request, id, val):
+    respuesta = Respuesta.objects.get(valor=val)
+    pregunta = Pregunta.objects.get(id=id)
+    Encuesta(pregunta=pregunta, respuesta=respuesta).save()
+
+    return JsonResponse({"OK": "OK"}, status=201)
 
 @csrf_exempt
 def busqueda(request):
@@ -258,6 +269,78 @@ def file_api(request, idAula):
         aula = Aula.objects.get(id=idAula)
         url = str(aula.horario)
         return FileResponse(open(url, 'rb'))
+
+
+
+
+def adminSGA_encuestas(request):
+    misPreguntas = Pregunta.objects.all()
+    miSad = Respuesta.objects.get(valor=1)
+    miNeutral = Respuesta.objects.get(valor=2)
+    miHappy = Respuesta.objects.get(valor=3)
+
+    data = []
+    for pregunta in misPreguntas:
+        myData = pregunta.serialize()
+        myData['sad'] = len(Encuesta.objects.filter(pregunta=pregunta, respuesta=miSad))
+        myData['neutral'] = len(Encuesta.objects.filter(pregunta=pregunta, respuesta=miNeutral))
+        myData['happy'] = len(Encuesta.objects.filter(pregunta=pregunta, respuesta=miHappy))
+        data.append(myData)
+
+    return render(request, "adminSGA/encuestas.html", {
+            "encuestas": data
+            })
+
+def adminSGA_newPregunta(request):
+    if request.method == "POST":
+        Pregunta(pregunta=request.POST["pregunta"]).save()
+        return render(request, "adminSGA/new_pregunta.html",{
+                "message": "Se ha Guardado la Nueva Pregunta"
+            })
+    else:
+        return render(request, "adminSGA/new_pregunta.html")
+
+def adminSGA_editPregunta(request, id):
+    if request.method == "POST":
+        try:
+            Pregunta.objects.filter(id=id).update(pregunta=request.POST["pregunta"])
+            return render(request, "adminSGA/edit_pregunta.html", {
+                        "pregunta": Pregunta.objects.get(id=id),
+                        "message": "Se han Guardado los Cambios"
+                    })
+        except Exception as e:
+            return render(request, "adminSGA/edit_pregunta.html", {
+                        "pregunta": Pregunta.objects.get(id=id),
+                        "message": "Ocurrio un Error al Guardar los Cambios"
+                    })
+    else:   
+        miPregunta = Pregunta.objects.get(id=id)
+        return render(request, "adminSGA/edit_pregunta.html", {
+                "pregunta": miPregunta
+            })
+
+def adminSGA_quitPregunta(request, id):
+    try:
+        Pregunta.objects.get(id=id).delete()
+        return HttpResponseRedirect(reverse('adminSGA_Encuestas'))
+    except Exception as e:
+        return HttpResponse("Error al Quitar")
+
+
+def grafica(request, id):
+    miPregunta = Pregunta.objects.get(id=id)
+    miSad = Respuesta.objects.get(valor=1)
+    miNeutral = Respuesta.objects.get(valor=2)
+    miHappy = Respuesta.objects.get(valor=3)
+
+    myData = miPregunta.serialize()
+    myData['sad'] = len(Encuesta.objects.filter(pregunta=miPregunta, respuesta=miSad))
+    myData['neutral'] = len(Encuesta.objects.filter(pregunta=miPregunta, respuesta=miNeutral))
+    myData['happy'] = len(Encuesta.objects.filter(pregunta=miPregunta, respuesta=miHappy))
+
+    return render(request, "adminSGA/grafica.html", {
+            "pregunta": myData
+        })
 
 
 

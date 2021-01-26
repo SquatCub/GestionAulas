@@ -1,0 +1,52 @@
+{% extends "adminSGA/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container-fluid col-12 col-sm-11 bg-light border pt-3 pb-2 mt-5 text-center">
+    <h1>Grafica de Estadisticas</h1>
+    <p>
+    	<span class="font-italic">Esta es la pagina principal para la Aministracion de Sistema SGA</span>
+    	<br>
+    	<span class="mt-2 font-weight-bold">Aqui puedes ver la Grafica de Paste de las Estadisticas para la Pregunta</span>
+    </p>
+    <br><br>
+
+    <div class="table-responsive-sm">
+    	<div class="w-75 mx-auto text-center">		
+    		{% if pregunta.sad > 0 or pregunta.neutral > 0 or pregunta.happy > 0 %}
+        		<div id="piechart" style="width: 900px; height: 500px;"></div>
+        		<script type="text/javascript">
+
+
+
+				  google.charts.load('current', {'packages':['corechart']});
+				  google.charts.setOnLoadCallback(drawChart);
+
+				  function drawChart() {
+
+				    var data = google.visualization.arrayToDataTable([
+				      ['Respuesta', 'Voto de Satisfaccion'],
+				      ['Triste',     parseFloat('{{pregunta.sad}}')],
+				      ['Neutral',      parseFloat('{{pregunta.neutral}}')],
+				      ['Feliz',    parseFloat('{{pregunta.happy}}')]
+				    ]);
+
+				    var options = {
+				      title: 'Votos por Pregunta'
+				    };
+
+				    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+				    chart.draw(data, options);
+				  }
+				</script>
+    		{% else %}
+    			<h4>Esta pregunta aun no tiene suficientes votaciones para generar una grafica</h4>
+    		{% endif %}
+    	</div>
+    </div>
+
+</div>
+
+{% endblock %}

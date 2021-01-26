@@ -19,6 +19,7 @@
         <script type="text/javascript" src="{% static 'adminSGA/js/jquery-3.2.1.slim.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'adminSGA/js/bootstrap.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'adminSGA/js/popper.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'adminSGA/js/loader.js' %}"></script>
 
 
         <!-- Import of my file CSS (This file content animations and styles customs) -->
@@ -63,7 +64,7 @@
               {% if user.is_authenticated %}
 
                 <a id="btn-patients" class="nav-item nav-link active rounded myBtn" href="{% url 'adminSGA_Edificios' %}">Edificios</a>
-                <a id="btn-publications" id="btn-patients" class="nav-item nav-link active rounded rounded myBtn">Encuestas</a>
+                <a id="btn-publications" class="nav-item nav-link active rounded myBtn" href="{% url 'adminSGA_Encuestas' %}">Encuestas</a>
                 <a id="btn-users" class="nav-item nav-link active rounded myBtn" href="{% url 'adminSGA_users' %}">Usuarios</a>
                
 

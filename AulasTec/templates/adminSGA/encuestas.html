@@ -1,0 +1,64 @@
+{% extends "adminSGA/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container-fluid col-12 col-sm-11 bg-light border pt-3 pb-2 mt-5 text-center">
+    <h1>Usuarios</h1>
+    <p>
+        <span class="font-italic">Ventana para gestionar Encuestas del sistema</span>
+        <br>
+    </p>
+    <a class="btn btn-primary" href="{% url 'adminSGA_newPregunta' %}">Nueva Pregunta</a>
+    <br><br>
+
+    <div class="table-responsive-sm">
+        <table class="table text-center bg-white">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th scope="col">Pregunta</th>
+                <th scope="col">Triste</th>
+                <th scope="col">Neutral</th>
+                <th scope="col">Feliz</th>
+                <th scope="col">Ver Grafica</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Quitar</th>
+              </tr>
+            </thead>
+            
+            <tbody id="patients_tbody">
+    
+                {% if encuestas %}
+    
+                    {% for encuesta in encuestas %}
+                        <tr class="myRowTable rounded border">
+                            <th scope="row">{{ encuesta.pregunta }}</th>
+                            <td>{{ encuesta.sad }}</td>
+                            <td>{{ encuesta.neutral }}</td>
+                            <td>{{ encuesta.happy }}</td>
+                            
+                            <td style="word-break: unset !important;"> <a class="btn btn-primary btn-sm pt-0 pb-0" href="{% url 'adminSGA_Grafica' encuesta.id %}">Ver Grafica</a></td>
+
+                            <td style="word-break: unset !important;"> <a class="btn btn-warning btn-sm pt-0 pb-0" href="{% url 'adminSGA_EditPregunta' encuesta.id %}">Editar</a></td>
+
+                            <td style="word-break: unset !important;"> <a class="btn btn-danger btn-sm pt-0 pb-0" href="{% url 'adminSGA_QuitPregunta' encuesta.id %}">Quitar</a></td>
+
+                           	 
+                            
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr class="myRowTable rounded border">
+                        <th></th>  <td>NO DATA :(</td>  <td></td>  <td></td> <td></td> <td></td> <td></td>  <td></td>
+                    </tr>
+                {% endif %}
+    
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

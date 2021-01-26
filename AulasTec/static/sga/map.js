@@ -1,6 +1,187 @@
+let counter=0;
+let myRandom = Math.floor(Math.random()*(10-5))+5;
+var intervalId = null;
+var misPreguntas = []
+var i = 0;
+var valor = 0;
+
+var listenerShowEncuesta = function(){
+     if(counter == myRandom) {
+        renderEncuesta();
+        clearInterval(intervalId);
+     } else {
+         counter++; 
+     }
+};
+
+// Listener MAIN
 document.addEventListener('DOMContentLoaded', function() {
     listener();
+    fetchDataEncuesta();
+    $("#sad").click(function() 
+    {
+      
+      document.getElementById('sad').style.background = "#99AA99";
+      document.getElementById('neutral').style.background = "#fff";
+      document.getElementById('happy').style.background = "#fff";
+
+      valor = 1;
+
+    });
+
+    $("#neutral").click(function() 
+    {
+      
+      document.getElementById('sad').style.background = "#fff";
+      document.getElementById('neutral').style.background = "#99AA99";
+      document.getElementById('happy').style.background = "#fff";
+
+      valor = 2;
+
+    });
+
+    $("#happy").click(function() 
+    {
+      
+      document.getElementById('sad').style.background = "#fff";
+      document.getElementById('neutral').style.background = "#fff";
+      document.getElementById('happy').style.background = "#99AA99";
+
+      valor = 3;
+
+    });
+
+    $("#cerrar").click(function() 
+    {
+      document.getElementById('sad').style.background = "#fff";
+      document.getElementById('neutral').style.background = "#fff";
+      document.getElementById('happy').style.background = "#fff";
+
+      if ( i < misPreguntas.length && i > 0)
+      {
+        i--;
+      }
+      else
+      {
+        if (i == misPreguntas.length)
+        {
+          i--;
+        }
+      }
+
+      valor = 0;
+    });
 });
+
+
+function restartCounter(){
+    counter = 0
+    myRandom = Math.floor(Math.random()*(10-5))+5;
+
+    valor = 0;
+    runRandomEncuesta();
+}
+
+function re()
+{
+    for (var o = 0; o < 20; o++) {
+
+        for (var l = 0; l < misPreguntas.length; l++) {
+
+                  fetch('puntar/'+misPreguntas[l].id+'/3', {
+                    method: 'GET'
+                })
+                  .then(response => response.json())
+                  .then(result => {
+
+                 });
+        }
+        
+    }
+}
+
+function fetchPuntuacion(id)
+{   
+    if(valor != 0)
+    {
+        var k = id-1
+        if(k >= 0)
+        {
+            try
+            {
+
+                fetch('puntar/'+misPreguntas[k].id+'/'+valor, {
+                    method: 'GET'
+                })
+                  .then(response => response.json())
+                  .then(result => {
+
+                 });
+            }
+            catch (e)
+            {
+                console.log(e);
+            }
+        }
+    }
+    
+    valor = 0;
+}
+
+function fetchDataEncuesta()
+{
+    try
+    {
+
+        fetch('/encuesta', {
+            method: 'GET'
+        })
+          .then(response => response.json())
+          .then(result => {
+
+            if (result.length > 0) 
+            {
+                runRandomEncuesta();
+                misPreguntas = result;
+            }
+
+         });
+    }
+    catch (e)
+    {
+        console.log(e);
+    }
+}
+
+function renderEncuesta()
+{
+    $('#myEncuesta').modal('show');
+}
+
+function nextP() 
+{
+      document.getElementById('sad').style.background = "#fff";
+      document.getElementById('neutral').style.background = "#fff";
+      document.getElementById('happy').style.background = "#fff";
+
+      fetchPuntuacion(i);
+      if ( i < misPreguntas.length)
+      {
+        document.getElementById("miPregunta").textContent = misPreguntas[i].pregunta+" : ID="+ misPreguntas[i].id;
+        i++;
+      }
+      else
+      {
+        document.getElementById("miPregunta").textContent = "Gracias";
+        i = 0;
+      }
+}
+
+
+function runRandomEncuesta()
+{
+    intervalId = setInterval(listenerShowEncuesta, 1000);
+}
 
 
 function listener() {
