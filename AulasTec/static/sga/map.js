@@ -1,9 +1,16 @@
 let counter=0;
-let myRandom = Math.floor(Math.random()*(10-5))+5;
+let myRandom = getRandom();
 var intervalId = null;
 var misPreguntas = []
 var i = 0;
 var valor = 0;
+
+function getRandom()
+{
+    // Math.floor(Math.random()*(max-min))+min;
+
+    return Math.floor(Math.random()*(90-60))+60;
+}
 
 var listenerShowEncuesta = function(){
      if(counter == myRandom) {
@@ -76,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function restartCounter(){
     counter = 0
-    myRandom = Math.floor(Math.random()*(10-5))+5;
+    myRandom = getRandom();
 
     valor = 0;
     runRandomEncuesta();
